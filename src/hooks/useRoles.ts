@@ -9,7 +9,7 @@ import { useChange } from "./useChange"
  * @param options
  * @returns
  */
-export default function useRoles<
+export function useRoles<
     TRoles extends Record<
         string,
         { serviceClass: number; preferredDeviceId?: string }
