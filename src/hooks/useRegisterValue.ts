@@ -41,7 +41,7 @@ export function useRegisterHumanValue(
     register: JDRegister,
     options?: HumanRegisterOptions
 ): string {
-    const { disabled, maxLength, trackError } = options
+    const { disabled, maxLength, trackError } = options || {}
     const [value, setValue] = useState<string>(
         ellipse(register?.humanValue, maxLength)
     )
@@ -74,8 +74,8 @@ export function useRegisterUnpackedValue<T extends PackedValues>(
     register: JDRegister,
     options?: RegisterOptions
 ): T {
+    const { disabled, trackError } = options || {}
     const [value, setValue] = useState<T>(register?.unpackedValue as T)
-    const { disabled, trackError } = options
 
     useEffect(() => {
         const readValue = () =>
@@ -106,8 +106,8 @@ export function useRegisterBoolValue(
     register: JDRegister,
     options?: RegisterOptions
 ): boolean {
+    const { disabled } = options || {}
     const [value, setValue] = useState<boolean>(register?.boolValue)
-    const { disabled } = options
     // update value
     useEffect(() => {
         setValue(register?.boolValue)
