@@ -1,5 +1,5 @@
 {
-    "entryPoints": ["src/jacdac.ts"],
+    "entryPoints": ["src/index.ts"],
     "out": "docs",
     "exclude": [
         "src/index.ts"

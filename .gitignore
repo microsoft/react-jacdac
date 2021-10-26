@@ -2,3 +2,4 @@ node_modules
 dist
 pxt_modules
 .parcel-cache
+docs
