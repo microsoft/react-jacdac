@@ -1,5 +1,11 @@
-import React, { createContext, ReactNode, useEffect, useRef } from "react"
-import { JDBus } from "jacdac-ts"
+import React, {
+    createContext,
+    ReactNode,
+    useEffect,
+    useMemo,
+    useRef,
+} from "react"
+import { createWebBus, JDBus } from "jacdac-ts"
 
 export interface JacdacContextProps {
     bus: JDBus
@@ -15,13 +21,16 @@ JacdacContext.displayName = "Jacdac"
 
 /**
  * Mounts a Jacdac context with the provided bus.
+ * The bus should be instantiated outside of the React tree
+ * to work well with hot-reload solution (avoiding the bus to constantly reset)
  */
 export function JacdacProvider(props: {
-    bus: JDBus
+    initialBus?: JDBus
     connectOnStart?: boolean
     children: ReactNode
 }) {
-    const { bus, connectOnStart, children } = props
+    const { initialBus, connectOnStart, children } = props
+    const bus = useMemo(() => initialBus || createWebBus(), [])
     const firstConnect = useRef(false)
 
     useEffect(() => {
@@ -34,7 +43,7 @@ export function JacdacProvider(props: {
             firstConnect.current = true
             bus.connect(true)
         }
-    }, [bus])
+    }, [])
 
     return (
         <JacdacContext.Provider value={{ bus }}>
