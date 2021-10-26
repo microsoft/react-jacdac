@@ -8,29 +8,30 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/microsoft/react-jacdac.git"
-    },    
+    },
     "license": "MIT",
     "engines": {
-      "node": ">=14.17.0"
-    },    
+        "node": ">=14.17.0"
+    },
     "scripts": {
-        "prettier": "prettier --write src/**/*.ts tests/**/*.ts",
+        "prettier": "prettier --write src/**/*.ts",
         "watch": "parcel watch",
         "build": "parcel build",
         "docs": "node node_modules/typedoc/bin/typedoc",
         "docs:watch": "node node_modules/typedoc/bin/typedoc --watch",
-        "docs:server": "cd docs && npx live-server --port=8082"    
+        "docs:server": "cd docs && npx live-server --port=8082"
     },
     "devDependencies": {
-        "parcel": "latest",
-        "typescript": "^4.4.4",
         "@semantic-release/exec": "^6.0.1",
         "@semantic-release/git": "^10.0.0",
         "@typescript-eslint/eslint-plugin": "^4.33.0",
         "@typescript-eslint/parser": "^4.33.0",
         "eslint": "^7.32.0",
         "eslint-plugin-react": "^7.26.1",
-        "typedoc": "^0.22.5"
+        "parcel": "latest",
+        "prettier": "^2.4.1",
+        "typedoc": "^0.22.5",
+        "typescript": "^4.4.4"
     },
     "dependencies": {
         "jacdac-ts": "^1.18.23"
