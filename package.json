@@ -2,8 +2,12 @@
     "name": "react-jacdac",
     "version": "0.0.0",
     "source": "src/index.ts",
-    "module": "dist/module.js",
-    "types": "dist/types.d.ts",
+    "exports": {
+        "require": "./dist/react-jacdac.cjs",
+        "default": "./dist/reat-jacdac.modern.js"
+    },
+    "main": "./dist/react-jacdac.cjs",
+    "unpkg": "./dist/react-jacdac.umd.js",
     "author": "Microsoft Corporation",
     "repository": {
         "type": "git",
@@ -15,21 +19,20 @@
     },
     "scripts": {
         "prettier": "prettier --write src/**/*.ts",
-        "watch": "parcel watch",
-        "build": "parcel build --no-autoinstall",
+        "build": "microbundle",
+        "watch": "microbundle watch",
         "docs": "node node_modules/typedoc/bin/typedoc",
         "docs:watch": "node node_modules/typedoc/bin/typedoc --watch",
         "docs:server": "cd docs && npx live-server --port=8082"
     },
     "devDependencies": {
-        "@parcel/transformer-typescript-types": "^2.0.0",
         "@semantic-release/exec": "^6.0.1",
         "@semantic-release/git": "^10.0.0",
         "@typescript-eslint/eslint-plugin": "^5.2.0",
         "@typescript-eslint/parser": "^5.2.0",
         "eslint": "^8.1.0",
         "eslint-plugin-react": "^7.26.1",
-        "parcel": "^2.0.0",
+        "microbundle": "^0.14.1",
         "prettier": "^2.4.1",
         "react": "^17.0.0",
         "typedoc": "^0.22.7",

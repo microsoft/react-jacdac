@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react"
+import { DependencyList, useState, useEffect, useMemo } from "react"
 import { IEventSource, CHANGE, assert } from "jacdac-ts"
 
 /**
@@ -12,7 +12,7 @@ import { IEventSource, CHANGE, assert } from "jacdac-ts"
 export function useChange<TNode extends IEventSource, TValue>(
     node: TNode,
     query?: (n: TNode) => TValue,
-    deps?: React.DependencyList
+    deps?: DependencyList
 ): TValue {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     assert((node as any) !== false)
