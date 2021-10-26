@@ -31,5 +31,3 @@ export function useChange<TNode extends IEventSource, TValue>(
 
     return value
 }
-
-export default useChange
