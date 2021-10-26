@@ -7,6 +7,7 @@
         "default": "./dist/reat-jacdac.modern.js"
     },
     "main": "./dist/react-jacdac.cjs",
+    "module": "./dist/react-jacdac.module.js",
     "unpkg": "./dist/react-jacdac.umd.js",
     "author": "Microsoft Corporation",
     "repository": {
