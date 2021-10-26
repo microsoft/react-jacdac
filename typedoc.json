@@ -2,7 +2,7 @@
     "entryPoints": ["src/jacdac.ts"],
     "out": "docs",
     "exclude": [
-        "src/index.ts",
+        "src/index.ts"
     ],
     "excludePrivate": true,
     "excludeInternal": true,

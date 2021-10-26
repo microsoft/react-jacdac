@@ -7,9 +7,9 @@ import { IEventSource, CHANGE, assert } from "jacdac-ts"
  * @param node JDOM element
  * @param query query run whenever a change is signaled by the component
  * @param deps optional list of hooks dependencies
- * @returns 
+ * @returns
  */
-export default function useChange<TNode extends IEventSource, TValue>(
+export function useChange<TNode extends IEventSource, TValue>(
     node: TNode,
     query?: (n: TNode) => TValue,
     deps?: React.DependencyList
@@ -31,3 +31,5 @@ export default function useChange<TNode extends IEventSource, TValue>(
 
     return value
 }
+
+export default useChange
