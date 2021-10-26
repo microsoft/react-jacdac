@@ -1,0 +1,15 @@
+{
+    "entryPoints": ["src/jacdac.ts"],
+    "out": "docs",
+    "exclude": [
+        "src/index.ts",
+    ],
+    "excludePrivate": true,
+    "excludeInternal": true,
+    "excludeExternals": true,
+    "name": "React Jacdac",
+    "categoryOrder": [],
+    "readme": "./DOCS.md",
+    "includeVersion": true,
+    "categorizeByGroup": false
+}
