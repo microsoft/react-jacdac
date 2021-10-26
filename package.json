@@ -11,6 +11,9 @@
     "module": "./dist/react-jacdac.module.js",
     "unpkg": "./dist/react-jacdac.umd.js",
     "author": "Microsoft Corporation",
+    "files": [
+        "dist"
+    ],    
     "repository": {
         "type": "git",
         "url": "https://github.com/microsoft/react-jacdac.git"
