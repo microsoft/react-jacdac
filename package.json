@@ -24,17 +24,17 @@
     "devDependencies": {
         "@semantic-release/exec": "^6.0.1",
         "@semantic-release/git": "^10.0.0",
-        "@typescript-eslint/eslint-plugin": "^4.33.0",
-        "@typescript-eslint/parser": "^4.33.0",
-        "eslint": "^7.32.0",
+        "@typescript-eslint/eslint-plugin": "^5.2.0",
+        "@typescript-eslint/parser": "^5.2.0",
+        "eslint": "^8.1.0",
         "eslint-plugin-react": "^7.26.1",
         "parcel": "latest",
         "prettier": "^2.4.1",
-        "typedoc": "^0.22.5",
+        "typedoc": "^0.22.7",
         "typescript": "^4.4.4"
     },
     "dependencies": {
-        "jacdac-ts": "^1.18.23"
+        "jacdac-ts": "^1.18.24"
     },
     "peerDependencies": {
         "react": "^16.0.0"
