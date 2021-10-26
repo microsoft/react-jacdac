@@ -23,3 +23,14 @@ or
 ```
 yarn add react-jacdac
 ```
+
+## Hooks
+
+### useChange
+
+This hook queries values form a JDOM element, and listens for the ``CHANGE`` event.
+
+```javascript
+// query the current list of devices
+const devices = useChange(bus, _ => _.devices())
+```
