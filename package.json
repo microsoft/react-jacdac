@@ -10,6 +10,7 @@
     "main": "./dist/react-jacdac.cjs",
     "module": "./dist/react-jacdac.module.js",
     "unpkg": "./dist/react-jacdac.umd.js",
+    "types": "./dist/index.d.ts",
     "author": "Microsoft Corporation",
     "files": [
         "dist"
