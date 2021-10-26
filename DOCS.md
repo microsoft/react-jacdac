@@ -31,6 +31,8 @@ yarn add react-jacdac
 This hook queries values form a JDOM element, and listens for the ``CHANGE`` event.
 
 ```javascript
+import { useChange } from "react-jacdac"
+
 // query the current list of devices
 const devices = useChange(bus, _ => _.devices())
 ```
