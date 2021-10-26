@@ -21,8 +21,8 @@
     },
     "scripts": {
         "prettier": "prettier --write src/**/*.ts",
-        "build": "microbundle",
-        "watch": "microbundle watch",
+        "build": "microbundle --jsx React.createElement",
+        "watch": "microbundle --jsx React.createElement watch",
         "docs": "node node_modules/typedoc/bin/typedoc",
         "docs:watch": "node node_modules/typedoc/bin/typedoc --watch",
         "docs:server": "cd docs && npx live-server --port=8082"
