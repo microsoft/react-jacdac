@@ -20,7 +20,6 @@
     "preserveConstEnums": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "declarationDir": "dist/types",
     "resolveJsonModule": true,
     "outDir": "dist/lib",
     "pretty": true,

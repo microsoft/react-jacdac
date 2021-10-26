@@ -16,7 +16,7 @@
     "scripts": {
         "prettier": "prettier --write src/**/*.ts",
         "watch": "parcel watch",
-        "build": "parcel build",
+        "build": "parcel build --no-autoinstall",
         "docs": "node node_modules/typedoc/bin/typedoc",
         "docs:watch": "node node_modules/typedoc/bin/typedoc --watch",
         "docs:server": "cd docs && npx live-server --port=8082"
