@@ -1,12 +1,12 @@
-import { JDService, RoleManager } from "jacdac-ts"
-import { useMemo } from "react"
+import { CHANGE, JDService, RoleManager } from "jacdac-ts"
+import { useEffect, useMemo } from "react"
 import { useBus } from "./useBus"
 import { useChange } from "./useChange"
 
 /**
  * A hook that allow to create a service role mapping
  * @param bindings
- * @param options
+ * @param options make sure to memoize onUpdate
  * @returns
  */
 export function useRoles<
@@ -21,6 +21,7 @@ export function useRoles<
 >(
     bindings: TRoles,
     options?: {
+        onUpdate?: (roles: TRoles) => void
         /**
          * Calls update even if not all role around bound
          */
@@ -28,7 +29,7 @@ export function useRoles<
     }
 ) {
     const bus = useBus()
-    const { incomplete } = options || {}
+    const { incomplete, onUpdate } = options || {}
     const roleManager = useMemo(() => {
         const r = new RoleManager(bus)
         r.updateRoles(
@@ -41,6 +42,30 @@ export function useRoles<
         )
         return r
     }, [bus, bindings])
+
+    // callback to serialize bindings
+    useEffect(
+        () =>
+            !!onUpdate &&
+            roleManager?.subscribe(CHANGE, (_: RoleManager) => {
+                const r: any = {}
+                if (_) {
+                    const roles = _.saveRoles()
+                    for (const key in bindings) {
+                        const role = roles.find(r => r.role === key)
+                        if (role)
+                            r[key] = {
+                                serviceClass: role.serviceClass,
+                                preferredDeviceId: role.preferredDeviceId,
+                                preferredServiceIndex:
+                                    role.preferredServiceIndex,
+                            }
+                    }
+                }
+                onUpdate(r as TRoles)
+            }),
+        [roleManager, onUpdate]
+    )
 
     const { roles, updates } = useChange(
         roleManager,
