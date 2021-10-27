@@ -47,15 +47,13 @@ export function useRoles<
             if (_) {
                 for (const key in bindings) {
                     const srv = _.service(key)
-                    if (srv) {
-                        if (incomplete || _.isBound) r[key] = srv
-                        u[key] = (service: JDService) =>
-                            _.updateRole(
-                                key,
-                                service?.serviceClass,
-                                service?.device.deviceId
-                            )
-                    }
+                    if (srv && (incomplete || _.isBound)) r[key] = srv
+                    u[key] = (service: JDService) =>
+                        _.updateRole(
+                            key,
+                            service?.serviceClass,
+                            service?.device.deviceId
+                        )
                 }
             }
             return { roles: r, updates: u }
