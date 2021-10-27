@@ -2831,10 +2831,10 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-jacdac-ts@^1.18.26:
-  version "1.18.26"
-  resolved "https://registry.yarnpkg.com/jacdac-ts/-/jacdac-ts-1.18.26.tgz#c27a8753749ace69f48d24f573e0de5c73939dd6"
-  integrity sha512-kECITZTWAC8ZUdRjWJhAPheCZrZLGg79shQfAlakakOpmAGdrdEsCK1+CiCKg215P0HEgzrJNJlbyz1l69Fieg==
+jacdac-ts@^1.18.27:
+  version "1.18.27"
+  resolved "https://registry.yarnpkg.com/jacdac-ts/-/jacdac-ts-1.18.27.tgz#6cf9a886ec478476c69f1ab45099c6be4f82f024"
+  integrity sha512-iIO2B+hdYMBPSdQT2HIbOFE+5X7cfRb873Th3MAMgKwQ74DjnA5jyWDOfwfeCRBBUw3tXTG8JXd6m0QXDo8pSw==
   dependencies:
     "@types/node" "^16.10.3"
     "@types/w3c-web-serial" "^1.0.2"
