@@ -71,7 +71,7 @@ export function useRegisterHumanValue(
  * @param options
  * @returns unpacked value of the register. Empty array if missing.
  */
-export function useRegisterUnpackedValue<T extends PackedValues>(
+export function useRegisterValue<T extends PackedValues>(
     register: JDRegister,
     options?: RegisterOptions,
     deps?: DependencyList
