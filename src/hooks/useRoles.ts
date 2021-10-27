@@ -21,7 +21,7 @@ export function useRoles<
 >(
     bindings: TRoles,
     options?: {
-        onUpdate?: (roles: TRoles) => void
+        onUpdate?: (newBindings: TRoles) => void
         /**
          * Calls update even if not all role around bound
          */
@@ -46,25 +46,24 @@ export function useRoles<
     // callback to serialize bindings
     useEffect(
         () =>
-            !!onUpdate &&
-            roleManager?.subscribe(CHANGE, (_: RoleManager) => {
-                const r: any = {}
-                if (_) {
-                    const roles = _.saveRoles()
-                    for (const key in bindings) {
-                        const role = roles.find(r => r.role === key)
-                        if (role)
-                            r[key] = {
-                                serviceClass: role.serviceClass,
-                                preferredDeviceId: role.preferredDeviceId,
-                                preferredServiceIndex:
-                                    role.preferredServiceIndex,
-                            }
-                    }
-                }
-                onUpdate(r as TRoles)
-            }),
-        [roleManager, onUpdate]
+            onUpdate
+                ? roleManager?.subscribe(CHANGE, () => {
+                      const r: any = {}
+                      const roles = roleManager.saveRoles()
+                      for (const key in bindings) {
+                          const role = roles.find(r => r.role === key)
+                          if (role)
+                              r[key] = {
+                                  serviceClass: role.serviceClass,
+                                  preferredDeviceId: role.preferredDeviceId,
+                                  preferredServiceIndex:
+                                      role.preferredServiceIndex,
+                              }
+                      }
+                      onUpdate(r as TRoles)
+                  })
+                : undefined,
+        [roleManager, bindings, onUpdate]
     )
 
     const { roles, updates } = useChange(
