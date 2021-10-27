@@ -37,20 +37,31 @@ export function useRoles<
         return r
     }, [bindings, incomplete])
 
-    const roles = useChange(
+    const { roles, updates } = useChange(
         roleManager,
         _ => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const r: Record<keyof TRoles, JDService> = {} as any
-            if (_ && (incomplete || _.isBound)) {
+            const u: Record<keyof TRoles, (service: JDService) => void> =
+                {} as any
+            if (_) {
                 for (const key in bindings) {
                     const srv = _.service(key)
-                    if (srv) r[key] = srv
+                    if (srv) {
+                        if (incomplete || _.isBound) r[key] = srv
+                        u[key] = (service: JDService) =>
+                            _.updateRole(
+                                key,
+                                service?.serviceClass,
+                                service?.device.deviceId
+                            )
+                    }
                 }
             }
-            return r
+            return { roles: r, updates: u }
         },
         []
     )
-    return { roleManager, roles }
+
+    return { roleManager, roles, updates }
 }
