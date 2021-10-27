@@ -1,5 +1,5 @@
 import { CHANGE, JDService, RoleManager } from "jacdac-ts"
-import { useEffect, useMemo } from "react"
+import { DependencyList, useEffect, useMemo } from "react"
 import { useBus } from "./useBus"
 import { useChange } from "./useChange"
 
@@ -26,7 +26,8 @@ export function useRoles<
          * Calls update even if not all role around bound
          */
         incomplete?: boolean
-    }
+    },
+    deps?: DependencyList
 ) {
     const bus = useBus()
     const { incomplete, onUpdate } = options || {}
@@ -41,7 +42,7 @@ export function useRoles<
             }))
         )
         return r
-    }, [bus, bindings])
+    }, [bus, bindings, ...(deps || [])])
 
     // callback to serialize bindings
     useEffect(
@@ -63,7 +64,7 @@ export function useRoles<
                       onUpdate(r as TRoles)
                   })
                 : undefined,
-        [roleManager, bindings, onUpdate]
+        [roleManager, bindings, onUpdate, ...(deps || [])]
     )
 
     const { roles, updates } = useChange(
@@ -88,7 +89,7 @@ export function useRoles<
             }
             return { roles: r, updates: u }
         },
-        []
+        [...(deps || [])]
     )
 
     return { roleManager, roles, updates }

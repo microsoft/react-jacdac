@@ -1,5 +1,5 @@
 import { ellipse, JDRegister, PackedValues, REPORT_UPDATE } from "jacdac-ts"
-import { useEffect, useState } from "react"
+import { DependencyList, useEffect, useState } from "react"
 
 export interface RegisterOptions {
     /**
@@ -39,7 +39,8 @@ export interface HumanRegisterOptions extends RegisterOptions {
  */
 export function useRegisterHumanValue(
     register: JDRegister,
-    options?: HumanRegisterOptions
+    options?: HumanRegisterOptions,
+    deps?: DependencyList
 ): string {
     const { disabled, maxLength, trackError } = options || {}
     const [value, setValue] = useState<string>(
@@ -60,7 +61,7 @@ export function useRegisterHumanValue(
             !disabled &&
             register?.subscribe(REPORT_UPDATE, () => setValue(readValue))
         )
-    }, [register, disabled, maxLength])
+    }, [register, disabled, maxLength, ...(deps || [])])
     return value
 }
 
@@ -72,7 +73,8 @@ export function useRegisterHumanValue(
  */
 export function useRegisterUnpackedValue<T extends PackedValues>(
     register: JDRegister,
-    options?: RegisterOptions
+    options?: RegisterOptions,
+    deps?: DependencyList
 ): T {
     const { disabled, trackError } = options || {}
     const [value, setValue] = useState<T>(register?.unpackedValue as T)
@@ -92,7 +94,7 @@ export function useRegisterUnpackedValue<T extends PackedValues>(
                 setValue(readValue)
             })
         )
-    }, [register, disabled])
+    }, [register, disabled, ...(deps || [])])
     return value || ([] as T)
 }
 
@@ -104,7 +106,8 @@ export function useRegisterUnpackedValue<T extends PackedValues>(
  */
 export function useRegisterBoolValue(
     register: JDRegister | undefined,
-    options?: RegisterOptions
+    options?: RegisterOptions,
+    deps?: DependencyList
 ): boolean {
     const { disabled } = options || {}
     const [value, setValue] = useState<boolean>(register?.boolValue)
@@ -117,6 +120,6 @@ export function useRegisterBoolValue(
                 setValue(register?.boolValue)
             })
         )
-    }, [register, disabled])
+    }, [register, disabled, ...(deps || [])])
     return value
 }

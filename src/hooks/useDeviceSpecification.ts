@@ -1,4 +1,5 @@
 import { deviceSpecificationFromProductIdentifier, JDDevice } from "jacdac-ts"
+import { DependencyList } from "react"
 import { useDeviceProductIdentifier } from "./useDeviceProductIdentifier"
 
 /**
@@ -6,8 +7,11 @@ import { useDeviceProductIdentifier } from "./useDeviceProductIdentifier"
  * @param device
  * @returns product specification or undefined if missing or unknown
  */
-export function useDeviceSpecification(device: JDDevice | undefined) {
-    const id = useDeviceProductIdentifier(device)
+export function useDeviceSpecification(
+    device: JDDevice | undefined,
+    deps?: DependencyList
+) {
+    const id = useDeviceProductIdentifier(device, deps)
     const specification = deviceSpecificationFromProductIdentifier(id)
     return specification
 }

@@ -1,5 +1,5 @@
 import { JDService } from "jacdac-ts"
-import { useMemo } from "react"
+import { DependencyList, useMemo } from "react"
 
 /**
  * A hook that resolves the register of a service, given the register code.
@@ -9,7 +9,11 @@ import { useMemo } from "react"
  */
 export function useRegister(
     service: JDService | undefined,
-    identifier: number
+    identifier: number,
+    deps?: DependencyList
 ) {
-    return useMemo(() => service?.register(identifier), [service, identifier])
+    return useMemo(
+        () => service?.register(identifier),
+        [service, identifier, ...(deps || [])]
+    )
 }
