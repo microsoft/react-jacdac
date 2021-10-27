@@ -1,5 +1,5 @@
 import { JDService, RoleManager } from "jacdac-ts"
-import { useContext, useMemo } from "react"
+import { useMemo } from "react"
 import { useBus } from "./useBus"
 import { useChange } from "./useChange"
 
@@ -12,7 +12,11 @@ import { useChange } from "./useChange"
 export function useRoles<
     TRoles extends Record<
         string,
-        { serviceClass: number; preferredDeviceId?: string }
+        {
+            serviceClass: number
+            preferredDeviceId?: string
+            preferredServiceIndex?: number
+        }
     >
 >(
     bindings: TRoles,
@@ -32,10 +36,11 @@ export function useRoles<
                 role,
                 serviceClass: bindings[role].serviceClass,
                 preferredDeviceId: bindings[role].preferredDeviceId,
+                preferredServiceIndex: bindings[role].preferredServiceIndex,
             }))
         )
         return r
-    }, [bindings, incomplete])
+    }, [bus, bindings])
 
     const { roles, updates } = useChange(
         roleManager,
@@ -52,7 +57,8 @@ export function useRoles<
                         _.updateRole(
                             key,
                             service?.serviceClass,
-                            service?.device.deviceId
+                            service?.device.deviceId,
+                            service?.serviceIndex
                         )
                 }
             }
