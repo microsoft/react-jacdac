@@ -1,7 +1,8 @@
 import { ControlReg, JDDevice, JD_SERVICE_INDEX_CTRL } from "jacdac-ts"
 import { DependencyList } from "react"
+import { RegisterOptions } from ".."
 import { useRegister } from "./useRegister"
-import { useRegisterUnpackedValue } from "./useRegisterValue"
+import { useRegisterValue } from "./useRegisterValue"
 
 /**
  * A hook that queries and updates the device product identifier.
@@ -10,6 +11,7 @@ import { useRegisterUnpackedValue } from "./useRegisterValue"
  */
 export function useDeviceProductIdentifier(
     device: JDDevice | undefined,
+    options?: RegisterOptions,
     deps?: DependencyList
 ) {
     const reg = useRegister(
@@ -17,6 +19,6 @@ export function useDeviceProductIdentifier(
         ControlReg.ProductIdentifier,
         deps
     )
-    const [id] = useRegisterUnpackedValue<[number]>(reg, undefined, deps)
+    const [id] = useRegisterValue<[number]>(reg, options, deps)
     return id
 }
