@@ -7,7 +7,7 @@ import { DependencyList, useEffect } from "react"
  * @param handler handler, not part of depenency list
  */
 export function useEventReceived(
-    event: JDEvent,
+    event: JDEvent | undefined,
     handler: (event: JDEvent) => void,
     deps?: DependencyList
 ) {

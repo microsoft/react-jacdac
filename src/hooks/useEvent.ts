@@ -7,6 +7,6 @@ import { useMemo } from "react"
  * @param identifier event identifier
  * @returns event JDOM node if any
  */
-export function useEvent(service: JDService, identifier: number) {
+export function useEvent(service: JDService | undefined, identifier: number) {
     return useMemo(() => service?.event(identifier), [service, identifier])
 }

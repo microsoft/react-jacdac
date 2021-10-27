@@ -10,7 +10,7 @@ import { IEventSource, CHANGE, assert } from "jacdac-ts"
  * @returns
  */
 export function useChange<TNode extends IEventSource, TValue>(
-    node: TNode,
+    node: TNode | undefined,
     query?: (n: TNode) => TValue,
     deps?: DependencyList
 ): TValue {

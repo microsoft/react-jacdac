@@ -1,8 +1,8 @@
 import { DOCS_ROOT, identifierToUrlPath } from "jacdac-ts"
 
 export function useDeviceImage(
-    specification: jdspec.DeviceSpec,
-    size: "avatar" | "lazy" | "catalog" | "preview" | "full" | "list"
+    specification: jdspec.DeviceSpec | undefined,
+    size?: "avatar" | "lazy" | "catalog" | "preview" | "full" | "list"
 ) {
     const sz = size || "full"
     return (

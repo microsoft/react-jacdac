@@ -103,7 +103,7 @@ export function useRegisterUnpackedValue<T extends PackedValues>(
  * @returns value of the register. undefined if missing
  */
 export function useRegisterBoolValue(
-    register: JDRegister,
+    register: JDRegister | undefined,
     options?: RegisterOptions
 ): boolean {
     const { disabled } = options || {}

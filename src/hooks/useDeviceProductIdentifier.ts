@@ -7,7 +7,7 @@ import { useRegisterUnpackedValue } from "./useRegisterValue"
  * @param device
  * @returns product indentifier or undefined if missing
  */
-export function useDeviceProductIdentifier(device: JDDevice) {
+export function useDeviceProductIdentifier(device: JDDevice | undefined) {
     const reg = useRegister(
         device?.service(JD_SERVICE_INDEX_CTRL),
         ControlReg.ProductIdentifier

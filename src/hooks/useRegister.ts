@@ -7,6 +7,6 @@ import { useMemo } from "react"
  * @param identifier register code
  * @returns register JDOM node, if supported in the specification
  */
-export function useRegister(service: JDService, identifier: number) {
+export function useRegister(service: JDService | undefined, identifier: number) {
     return useMemo(() => service?.register(identifier), [service, identifier])
 }
