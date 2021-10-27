@@ -1,8 +1,7 @@
 import { ControlReg, JDDevice, JD_SERVICE_INDEX_CTRL } from "jacdac-ts"
 import { DependencyList } from "react"
-import { RegisterOptions } from ".."
 import { useRegister } from "./useRegister"
-import { useRegisterValue } from "./useRegisterValue"
+import { useRegisterValue, RegisterOptions } from "./useRegisterValue"
 
 /**
  * A hook that queries and updates the device product identifier.
