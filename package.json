@@ -1,7 +1,7 @@
 {
     "name": "react-jacdac",
     "type": "module",
-    "version": "1.0.21",
+    "version": "1.0.22",
     "source": "src/index.ts",
     "exports": {
         "require": "./dist/react-jacdac.cjs",
