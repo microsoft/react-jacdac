@@ -6,7 +6,7 @@ import { useBus } from "./useBus"
  * A hook to force brains into proxy mode.
  * @param force
  */
-export default function useProxy(force: boolean) {
+export function useProxy(force: boolean) {
     const bus = useBus()
     useEffect(() => {
         if (!force) return
