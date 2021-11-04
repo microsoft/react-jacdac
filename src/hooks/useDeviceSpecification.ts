@@ -1,7 +1,9 @@
-import { deviceSpecificationFromProductIdentifier, JDDevice } from "jacdac-ts"
 import { DependencyList } from "react"
+import { useChange } from "./useChange"
+import useDeviceCatalog from "./useDeviceCatalog"
 import { useDeviceProductIdentifier } from "./useDeviceProductIdentifier"
 import { RegisterOptions } from "./useRegisterValue"
+import { JDDevice } from "jacdac-ts"
 
 /**
  * A hook that resolves the product specification if any.
@@ -14,6 +16,11 @@ export function useDeviceSpecification(
     deps?: DependencyList
 ) {
     const id = useDeviceProductIdentifier(device, options, deps)
-    const specification = deviceSpecificationFromProductIdentifier(id)
+    const deviceCatalog = useDeviceCatalog()
+    const specification = useChange(
+        deviceCatalog,
+        _ => _.specificationFromProductIdentifier(id),
+        [id]
+    )
     return specification
 }
