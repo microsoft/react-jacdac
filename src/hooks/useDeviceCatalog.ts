@@ -1,7 +1,9 @@
-import { deviceCatalog } from "jacdac-ts"
+import { useBus } from "./useBus"
+
 /**
  * Retreives an updatable device catalog
  */
 export default function useDeviceCatalog() {
-    return deviceCatalog
+    const bus = useBus()
+    return bus.deviceCatalog
 }

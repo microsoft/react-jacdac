@@ -46,7 +46,7 @@
         "@types/react": "^17.0.34"
     },
     "dependencies": {
-        "jacdac-ts": "^1.20.0"
+        "jacdac-ts": "^1.21.0"
     },
     "peerDependencies": {
         "react": "^17.0.2"

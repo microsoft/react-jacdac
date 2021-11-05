@@ -2836,10 +2836,10 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-jacdac-ts@^1.20.0:
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/jacdac-ts/-/jacdac-ts-1.20.0.tgz#1160b1d33538a55c50ab16c864bd6e767a279631"
-  integrity sha512-uiqIjQY6M0uPD6XHpx37U79tX0+IFECbgGWxxCurInkPuhMQ13qFeL1AujRZ6YAohOpusX9XvI+hnHiLTnnkOQ==
+jacdac-ts@^1.21.0:
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/jacdac-ts/-/jacdac-ts-1.21.0.tgz#de0f3083b1e8985c6e5616e67c1e7e6eb4126d12"
+  integrity sha512-1yoL0WNR14yg3lUvPNQyOdF2i2TyJUZXPbd0HArIvm8sYFI5qGOW4P5Kk/l/9FaeZHFUxJfRU9pw8v/3sN1rQQ==
   dependencies:
     "@types/node" "^16.11.6"
     "@types/w3c-web-serial" "^1.0.2"
