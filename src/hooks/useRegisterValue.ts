@@ -1,5 +1,6 @@
 import { ellipse, JDRegister, PackedValues, REPORT_UPDATE } from "jacdac-ts"
-import { DependencyList, useEffect, useState } from "react"
+import { DependencyList } from "react"
+import { useEventRaised } from "./useEventRaised"
 
 export interface RegisterOptions {
     /**
@@ -43,26 +44,19 @@ export function useRegisterHumanValue(
     deps?: DependencyList
 ): string {
     const { disabled, maxLength, trackError } = options || {}
-    const [value, setValue] = useState<string>(
-        ellipse(register?.humanValue, maxLength)
-    )
 
-    // update value
-    useEffect(() => {
-        const readValue = () =>
+    return useEventRaised(
+        REPORT_UPDATE,
+        register,
+        _ =>
             readRegisterValue(
-                register,
-                _ => ellipse(_?.humanValue, maxLength),
-                "???",
+                _,
+                __ => ellipse(__?.humanValue, maxLength),
+                "?",
                 trackError
-            )
-        setValue(readValue)
-        return (
-            !disabled &&
-            register?.subscribe(REPORT_UPDATE, () => setValue(readValue))
-        )
-    }, [register, disabled, maxLength, ...(deps || [])])
-    return value
+            ),
+        [disabled, maxLength, ...(deps || [])]
+    )
 }
 
 /**
@@ -77,25 +71,19 @@ export function useRegisterValue<T extends PackedValues>(
     deps?: DependencyList
 ): T {
     const { disabled, trackError } = options || {}
-    const [value, setValue] = useState<T>(register?.unpackedValue as T)
 
-    useEffect(() => {
-        const readValue = () =>
+    return useEventRaised(
+        REPORT_UPDATE,
+        register,
+        _ =>
             readRegisterValue<T>(
-                register,
-                _ => _?.unpackedValue as T,
-                undefined,
+                _,
+                __ => (__?.unpackedValue || []) as T,
+                [] as T,
                 trackError
-            )
-        setValue(readValue)
-        return (
-            !disabled &&
-            register?.subscribe(REPORT_UPDATE, () => {
-                setValue(readValue)
-            })
-        )
-    }, [register, disabled, ...(deps || [])])
-    return value || ([] as T)
+            ),
+        [disabled, ...(deps || [])]
+    )
 }
 
 /**
@@ -110,16 +98,9 @@ export function useRegisterBoolValue(
     deps?: DependencyList
 ): boolean {
     const { disabled } = options || {}
-    const [value, setValue] = useState<boolean>(register?.boolValue)
-    // update value
-    useEffect(() => {
-        setValue(register?.boolValue)
-        return (
-            !disabled &&
-            register?.subscribe(REPORT_UPDATE, () => {
-                setValue(register?.boolValue)
-            })
-        )
-    }, [register, disabled, ...(deps || [])])
-    return value
+
+    return useEventRaised(REPORT_UPDATE, register, _ => _?.boolValue, [
+        disabled,
+        ...(deps || []),
+    ])
 }
