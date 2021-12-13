@@ -1,5 +1,6 @@
-import { DependencyList, useState, useEffect, useMemo } from "react"
-import { IEventSource, CHANGE, assert } from "jacdac-ts"
+import { DependencyList } from "react"
+import { IEventSource, CHANGE } from "jacdac-ts"
+import { useEventRaised } from "./useEventRaised"
 
 /**
  * A hook that tracks the CHANGE event in a Jacdac component and reruns, caches the query.
@@ -9,25 +10,10 @@ import { IEventSource, CHANGE, assert } from "jacdac-ts"
  * @param deps optional list of hooks dependencies
  * @returns
  */
-export function useChange<TNode extends IEventSource, TValue>(
-    node: TNode | undefined,
-    query?: (n: TNode) => TValue,
+export function useChange<TEventSource extends IEventSource, TValue>(
+    node: TEventSource | undefined,
+    query?: (n: TEventSource) => TValue,
     deps?: DependencyList
 ): TValue {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    assert((node as any) !== false)
-    const [version, setVersion] = useState(node?.changeId || 0)
-    const value = useMemo(
-        () => (query ? query(node) : undefined),
-        [node, version, ...(deps || [])]
-    )
-
-    useEffect(() => {
-        setVersion(node?.changeId || 0)
-        return node?.subscribe(CHANGE, () => {
-            setVersion(node.changeId)
-        })
-    }, [node, ...(deps || [])])
-
-    return value
+    return useEventRaised<TEventSource, TValue>(CHANGE, node, query, deps)
 }
