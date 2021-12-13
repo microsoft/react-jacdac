@@ -1,6 +1,7 @@
 # React-Jacdac
 
 A library of hooks and context for [Jacdac](https://aka.ms/jacdac).
+React with hooks support required.
 
 **Jacdac** is a plug-and-play hardware/software stack
 for **microcontrollers** and their peripherals (sensors/actuators),
