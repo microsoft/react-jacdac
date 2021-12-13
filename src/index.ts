@@ -1,5 +1,6 @@
 export * from "./context/Context"
 export * from "./hooks/useBus"
+export * from "./hooks/useEventRaised"
 export * from "./hooks/useChange"
 export * from "./hooks/useDeviceImage"
 export * from "./hooks/useDeviceProductIdentifier"
