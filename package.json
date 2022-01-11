@@ -32,22 +32,22 @@
         "docs:server": "cd docs && npx live-server --port=8082"
     },
     "devDependencies": {
-        "@semantic-release/exec": "^6.0.2",
+        "@semantic-release/exec": "^6.0.3",
         "@semantic-release/git": "^10.0.1",
-        "@types/react": "^17.0.37",
+        "@types/react": "^17.0.38",
         "@types/use-subscription": "^1.0.0",
-        "@typescript-eslint/eslint-plugin": "^5.6.0",
-        "@typescript-eslint/parser": "^5.6.0",
-        "eslint": "^8.4.1",
-        "eslint-plugin-react": "^7.27.1",
+        "@typescript-eslint/eslint-plugin": "^5.9.1",
+        "@typescript-eslint/parser": "^5.9.1",
+        "eslint": "^8.6.0",
+        "eslint-plugin-react": "^7.28.0",
         "microbundle": "^0.14.2",
         "prettier": "^2.5.1",
         "react": "^17.0.2",
         "typedoc": "^0.22.10",
-        "typescript": "^4.5.3"
+        "typescript": "^4.5.4"
     },
     "dependencies": {
-        "jacdac-ts": "^1.22.13",
+        "jacdac-ts": "^1.24.4",
         "use-subscription": "^1.5.1"
     },
     "peerDependencies": {
