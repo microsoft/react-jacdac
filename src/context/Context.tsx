@@ -1,10 +1,4 @@
-import React, {
-    createContext,
-    ReactNode,
-    useEffect,
-    useMemo,
-    useRef,
-} from "react"
+import React, { createContext, ReactNode, useMemo } from "react"
 import { createWebBus, JDBus } from "jacdac-ts"
 
 export interface JacdacContextProps {
@@ -26,24 +20,10 @@ JacdacContext.displayName = "Jacdac"
  */
 export function JacdacProvider(props: {
     initialBus?: JDBus
-    connectOnStart?: boolean
     children: ReactNode
 }) {
-    const { initialBus, connectOnStart, children } = props
+    const { initialBus, children } = props
     const bus = useMemo(() => initialBus || createWebBus(), [])
-    const firstConnect = useRef(false)
-
-    useEffect(() => {
-        if (
-            !firstConnect.current &&
-            connectOnStart &&
-            typeof document !== "undefined" &&
-            document.visibilityState === "visible"
-        ) {
-            firstConnect.current = true
-            bus.connect(true)
-        }
-    }, [])
 
     return (
         <JacdacContext.Provider value={{ bus }}>
