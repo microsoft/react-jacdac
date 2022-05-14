@@ -34,23 +34,23 @@
     "devDependencies": {
         "@semantic-release/exec": "^6.0.3",
         "@semantic-release/git": "^10.0.1",
-        "@types/react": "^17.0.41",
+        "@types/react": "^18.0.9",
         "@types/use-subscription": "^1.0.0",
-        "@typescript-eslint/eslint-plugin": "^5.16.0",
-        "@typescript-eslint/parser": "^5.16.0",
-        "eslint": "^8.11.0",
+        "@typescript-eslint/eslint-plugin": "^5.23.0",
+        "@typescript-eslint/parser": "^5.23.0",
+        "eslint": "^8.15.0",
         "eslint-plugin-react": "^7.29.4",
-        "microbundle": "^0.14.2",
-        "prettier": "^2.6.0",
-        "react": "^17.0.2",
-        "typedoc": "^0.22.13",
-        "typescript": "^4.6.2"
+        "microbundle": "^0.15.0",
+        "prettier": "^2.6.2",
+        "react": "^18.1.0",
+        "typedoc": "^0.22.15",
+        "typescript": "^4.6.4"
     },
     "dependencies": {
-        "jacdac-ts": "^1.24.20",
-        "use-subscription": "^1.5.1"
+        "jacdac-ts": "^1.24.28",
+        "use-subscription": "^1.7.0"
     },
     "peerDependencies": {
-        "react": "^17.0.2"
+        "react": "^18.1.0"
     }
 }
