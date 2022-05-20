@@ -13,7 +13,8 @@
     "types": "./dist/index.d.ts",
     "author": "Microsoft Corporation",
     "files": [
-        "dist"
+        "dist",
+        "src"
     ],
     "repository": {
         "type": "git",
