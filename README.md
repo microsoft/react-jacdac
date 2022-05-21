@@ -39,6 +39,12 @@ npm install -g yarn
 yarn install
 ```
 
+-   run storybook
+
+```
+yarn storybook
+```
+
 ### Visual Studio Code
 
 You are welcome to use any editor you want! Visual Studio Code
