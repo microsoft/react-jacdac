@@ -1,20 +1,26 @@
 import { DeviceFilter, SRV_BUTTON } from "jacdac-ts"
 import React from "react"
-import { useDevices } from "../hooks/useDevices"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import bus from "./bus"
 import { JacdacProvider } from "../context/Context"
+import { useRoles } from "../hooks/useRoles"
 import { useServiceProvider } from "./useServiceProvider"
 
-const Demo = (props: DeviceFilter) => {
-    const devices = useDevices(props)
+const Demo = () => {
+    const {
+        roles: { button1, button2 },
+    } = useRoles({
+        button1: { serviceClass: SRV_BUTTON },
+        button2: { serviceClass: SRV_BUTTON },
+    })
+    useServiceProvider({ serviceClass: SRV_BUTTON })
+    useServiceProvider({ serviceClass: SRV_BUTTON })
     return (
         <>
-            <p>devices: {devices.length}</p>
+            <p>roles:</p>
             <ul>
-                {devices.map(device => (
-                    <li key={device.id}>device {device.describe()}</li>
-                ))}
+                <li>button1: {button1?.id || "unbound"}</li>
+                <li>button2: {button2?.id || "unbound"}</li>
             </ul>
         </>
     )
@@ -30,27 +36,12 @@ const StoryContext = (props: DeviceFilter) => {
 }
 
 export default {
-    title: "Jacdac/useDevices",
+    title: "Jacdac/useRoles",
     component: StoryContext,
-    argTypes: {
-        serviceClass: { control: "number" },
-        serviceName: { control: "text" },
-    },
 } as ComponentMeta<typeof StoryContext>
 
 const Template: ComponentStory<typeof StoryContext> = args => (
     <StoryContext {...args} />
 )
 
-export const NoFilter = Template.bind({})
-NoFilter.args = {}
-
-export const ButtonsByName = Template.bind({})
-ButtonsByName.args = {
-    serviceName: "button",
-}
-
-export const ButtonsByServiceClass = Template.bind({})
-ButtonsByServiceClass.args = {
-    serviceClass: SRV_BUTTON,
-}
+export const TwoButtons = Template.bind({})
