@@ -36,9 +36,9 @@
         "@semantic-release/exec": "^6.0.3",
         "@semantic-release/git": "^10.0.1",
         "@types/react": "^18.0.9",
-        "@types/use-subscription": "^1.0.0",
         "@typescript-eslint/eslint-plugin": "^5.23.0",
         "@typescript-eslint/parser": "^5.23.0",
+        "@types/use-sync-external-store": "^0.0.3",
         "eslint": "^8.15.0",
         "eslint-plugin-react": "^7.29.4",
         "microbundle": "^0.15.0",
@@ -49,7 +49,7 @@
     },
     "dependencies": {
         "jacdac-ts": "^1.24.28",
-        "use-subscription": "^1.7.0"
+        "use-sync-external-store": "^1.1.0"
     },
     "peerDependencies": {
         "react": "^18.1.0"
