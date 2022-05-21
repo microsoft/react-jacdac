@@ -5,7 +5,7 @@ import { useSyncExternalStoreWithSelector } from "use-sync-external-store/with-s
 /**
  * A hook to track event and update a state snapshot
  */
-export default function useEventRaised<
+export function useEventRaised<
     TEventSource extends IEventSource,
     TValue
 >(
