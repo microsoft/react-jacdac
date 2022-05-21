@@ -13,7 +13,14 @@ import { useEventRaised } from "./useEventRaised"
 export function useChange<TEventSource extends IEventSource, TValue>(
     node: TEventSource | undefined,
     query?: (n: TEventSource) => TValue,
-    deps?: DependencyList
+    deps?: DependencyList,
+    isEqual?: (a: TValue, b: TValue) => boolean
 ): TValue {
-    return useEventRaised<TEventSource, TValue>(CHANGE, node, query, deps)
+    return useEventRaised<TEventSource, TValue>(
+        CHANGE,
+        node,
+        query,
+        deps,
+        isEqual
+    )
 }

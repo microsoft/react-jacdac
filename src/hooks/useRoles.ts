@@ -1,4 +1,4 @@
-import { CHANGE, JDService, RoleManager } from "jacdac-ts"
+import { arrayEq, CHANGE, JDService, RoleManager, unique } from "jacdac-ts"
 import { DependencyList, useEffect, useMemo } from "react"
 import { useBus } from "./useBus"
 import { useChange } from "./useChange"
@@ -89,7 +89,15 @@ export function useRoles<
             }
             return { roles: r, updates: u }
         },
-        [...(deps || [])]
+        [incomplete, ...(deps || [])],
+        (a, b) => {
+            const akeys = Object.keys(a.roles)
+            const bkeys = Object.keys(b.roles)
+            return (
+                arrayEq(akeys, bkeys) &&
+                akeys.every(role => Object.is(a.roles[role], b.roles[role]))
+            )
+        }
     )
 
     return { roleManager, roles, updates }
