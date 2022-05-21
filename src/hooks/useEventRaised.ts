@@ -5,10 +5,7 @@ import { useSyncExternalStoreWithSelector } from "use-sync-external-store/with-s
 /**
  * A hook to track event and update a state snapshot
  */
-export function useEventRaised<
-    TEventSource extends IEventSource,
-    TValue
->(
+export function useEventRaised<TEventSource extends IEventSource, TValue>(
     eventName: string | string[],
     node: TEventSource,
     query: (n: TEventSource) => TValue,
@@ -18,7 +15,7 @@ export function useEventRaised<
     const subscription = useMemo(
         () => ({
             getSnapshot: () => query?.(node),
-            selector: _ => _,
+            selector: (_: TValue) => _,
             subscribe: (onStoreChanged: () => void) => {
                 const unsubscribe = node?.subscribe(eventName, onStoreChanged)
                 return () => unsubscribe?.()
