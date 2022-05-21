@@ -9,11 +9,14 @@ const Demo = (props: DeviceFilter) => {
     console.log(props)
     const devices = useDevices(props)
     return (
-        <ul>
-            {devices.map(device => (
-                <li key={device.id}>device {device.describe()}</li>
-            ))}
-        </ul>
+        <>
+            <p>devices: {devices.length}</p>
+            <ul>
+                {devices.map(device => (
+                    <li key={device.id}>device {device.describe()}</li>
+                ))}
+            </ul>
+        </>
     )
 }
 
