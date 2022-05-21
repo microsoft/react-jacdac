@@ -48,11 +48,11 @@
     "@storybook/testing-library": "^0.0.11",
     "@types/react": "^18.0.9",
     "@types/use-sync-external-store": "^0.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
     "babel-loader": "^8.2.5",
-    "eslint": "^8.15.0",
-    "eslint-plugin-react": "^7.29.4",
+    "eslint": "^8.16.0",
+    "eslint-plugin-react": "^7.30.0",
     "microbundle": "^0.15.0",
     "prettier": "^2.6.2",
     "react": "^18.1.0",
@@ -60,7 +60,7 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
-    "jacdac-ts": "^1.24.28",
+    "jacdac-ts": "^1.24.29",
     "use-sync-external-store": "^1.1.0"
   },
   "peerDependencies": {
