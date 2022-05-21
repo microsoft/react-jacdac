@@ -1,5 +1,11 @@
-import { DeviceFilter, SRV_BUTTON } from "jacdac-ts"
-import React from "react"
+import {
+    addServiceProvider,
+    DeviceFilter,
+    serviceProviderDefinitionFromServiceClass,
+    serviceSpecificationFromName,
+    SRV_BUTTON,
+} from "jacdac-ts"
+import React, { useEffect } from "react"
 import { useDevices } from "../hooks/useDevices"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import bus from "./bus"
@@ -21,6 +27,15 @@ const Demo = (props: DeviceFilter) => {
 }
 
 const StoryContext = (props: DeviceFilter) => {
+    useEffect(() => {
+        serviceSpecificationFromName
+        const def = serviceProviderDefinitionFromServiceClass(
+            props.serviceClass ||
+                serviceSpecificationFromName(props.serviceName)?.classIdentifier
+        )
+        const provider = def && addServiceProvider(bus, def)
+        return () => provider && bus.removeServiceProvider(provider)
+    }, [])
     return (
         <JacdacProvider initialBus={bus}>
             <Demo {...props} />
