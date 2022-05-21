@@ -60,7 +60,7 @@ export function useRoles<TRoles extends Record<string, RoleBinding>>(
             const bkeys = Object.keys(b.roles)
             return (
                 arrayEq(akeys, bkeys) &&
-                akeys.every(role => Object.is(a.roles[role], b.roles[role]))
+                akeys.every(role => a.roles[role] === b.roles[role])
             )
         }
     )
