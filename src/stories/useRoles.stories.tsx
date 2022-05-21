@@ -1,4 +1,4 @@
-import { DeviceFilter, SRV_BUTTON } from "jacdac-ts"
+import { SRV_BUTTON } from "jacdac-ts"
 import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import bus from "./bus"
@@ -8,10 +8,11 @@ import { useServiceProvider } from "./useServiceProvider"
 
 const Demo = () => {
     const {
-        roles: { button1, button2 },
+        roles: { button1, button2, button3 },
     } = useRoles({
         button1: { serviceClass: SRV_BUTTON },
         button2: { serviceClass: SRV_BUTTON },
+        button3: { serviceClass: SRV_BUTTON },
     })
     useServiceProvider({ serviceClass: SRV_BUTTON })
     useServiceProvider({ serviceClass: SRV_BUTTON })
@@ -21,16 +22,16 @@ const Demo = () => {
             <ul>
                 <li>button1: {button1?.id || "unbound"}</li>
                 <li>button2: {button2?.id || "unbound"}</li>
+                <li>button3: {button3?.id || "unbound"}</li>
             </ul>
         </>
     )
 }
 
-const StoryContext = (props: DeviceFilter) => {
-    useServiceProvider(props)
+const StoryContext = () => {
     return (
         <JacdacProvider initialBus={bus}>
-            <Demo {...props} />
+            <Demo />
         </JacdacProvider>
     )
 }
@@ -44,4 +45,4 @@ const Template: ComponentStory<typeof StoryContext> = args => (
     <StoryContext {...args} />
 )
 
-export const TwoButtons = Template.bind({})
+export const ThreeButtons = Template.bind({})

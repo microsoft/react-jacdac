@@ -7,6 +7,7 @@ import { JacdacProvider } from "../context/Context"
 import { useServiceProvider } from "./useServiceProvider"
 
 const Demo = (props: DeviceFilter) => {
+    useServiceProvider(props)
     const devices = useDevices(props)
     return (
         <>
@@ -21,7 +22,6 @@ const Demo = (props: DeviceFilter) => {
 }
 
 const StoryContext = (props: DeviceFilter) => {
-    useServiceProvider(props)
     return (
         <JacdacProvider initialBus={bus}>
             <Demo {...props} />
