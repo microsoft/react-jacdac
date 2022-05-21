@@ -1,57 +1,69 @@
 {
-    "name": "react-jacdac",
-    "type": "module",
-    "version": "1.1.6",
-    "source": "src/index.ts",
-    "exports": {
-        "require": "./dist/react-jacdac.cjs",
-        "default": "./dist/reat-jacdac.modern.js"
-    },
-    "main": "./dist/react-jacdac.cjs",
-    "module": "./dist/react-jacdac.module.js",
-    "unpkg": "./dist/react-jacdac.umd.js",
-    "types": "./dist/index.d.ts",
-    "author": "Microsoft Corporation",
-    "files": [
-        "dist",
-        "src"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/microsoft/react-jacdac.git"
-    },
-    "license": "MIT",
-    "engines": {
-        "node": ">=14.17.0"
-    },
-    "scripts": {
-        "prettier": "prettier --write src/**/*.ts",
-        "build": "microbundle --jsx React.createElement",
-        "watch": "microbundle --jsx React.createElement watch",
-        "docs": "node node_modules/typedoc/bin/typedoc",
-        "docs:watch": "node node_modules/typedoc/bin/typedoc --watch",
-        "docs:server": "cd docs && npx live-server --port=8082"
-    },
-    "devDependencies": {
-        "@semantic-release/exec": "^6.0.3",
-        "@semantic-release/git": "^10.0.1",
-        "@types/react": "^18.0.9",
-        "@typescript-eslint/eslint-plugin": "^5.23.0",
-        "@typescript-eslint/parser": "^5.23.0",
-        "@types/use-sync-external-store": "^0.0.3",
-        "eslint": "^8.15.0",
-        "eslint-plugin-react": "^7.29.4",
-        "microbundle": "^0.15.0",
-        "prettier": "^2.6.2",
-        "react": "^18.1.0",
-        "typedoc": "^0.22.15",
-        "typescript": "^4.6.4"
-    },
-    "dependencies": {
-        "jacdac-ts": "^1.24.28",
-        "use-sync-external-store": "^1.1.0"
-    },
-    "peerDependencies": {
-        "react": "^18.1.0"
-    }
+  "name": "react-jacdac",
+  "type": "module",
+  "version": "1.1.6",
+  "source": "src/index.ts",
+  "exports": {
+    "require": "./dist/react-jacdac.cjs",
+    "default": "./dist/reat-jacdac.modern.js"
+  },
+  "main": "./dist/react-jacdac.cjs",
+  "module": "./dist/react-jacdac.module.js",
+  "unpkg": "./dist/react-jacdac.umd.js",
+  "types": "./dist/index.d.ts",
+  "author": "Microsoft Corporation",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/react-jacdac.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.17.0"
+  },
+  "scripts": {
+    "prettier": "prettier --write src/**/*.ts",
+    "build": "microbundle --jsx React.createElement",
+    "watch": "microbundle --jsx React.createElement watch",
+    "docs": "node node_modules/typedoc/bin/typedoc",
+    "docs:watch": "node node_modules/typedoc/bin/typedoc --watch",
+    "docs:server": "cd docs && npx live-server --port=8082",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@storybook/addon-actions": "^6.5.3",
+    "@storybook/addon-essentials": "^6.5.3",
+    "@storybook/addon-interactions": "^6.5.3",
+    "@storybook/addon-links": "^6.5.3",
+    "@storybook/builder-webpack4": "^6.5.3",
+    "@storybook/manager-webpack4": "^6.5.3",
+    "@storybook/react": "^6.5.3",
+    "@storybook/testing-library": "^0.0.11",
+    "@types/react": "^18.0.9",
+    "@types/use-sync-external-store": "^0.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "babel-loader": "^8.2.5",
+    "eslint": "^8.15.0",
+    "eslint-plugin-react": "^7.29.4",
+    "microbundle": "^0.15.0",
+    "prettier": "^2.6.2",
+    "react": "^18.1.0",
+    "typedoc": "^0.22.15",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "jacdac-ts": "^1.24.28",
+    "use-sync-external-store": "^1.1.0"
+  },
+  "peerDependencies": {
+    "react": "^18.1.0"
+  }
 }
