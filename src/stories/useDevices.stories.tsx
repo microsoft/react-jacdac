@@ -1,4 +1,4 @@
-import { DeviceFilter } from "jacdac-ts"
+import { DeviceFilter, SRV_BUTTON } from "jacdac-ts"
 import React from "react"
 import { useDevices } from "../hooks/useDevices"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
@@ -41,7 +41,12 @@ const Template: ComponentStory<typeof StoryContext> = args => (
 export const NoFilter = Template.bind({})
 NoFilter.args = {}
 
-export const Buttons = Template.bind({})
-Buttons.args = {
+export const ButtonsByName = Template.bind({})
+ButtonsByName.args = {
     serviceName: "button",
+}
+
+export const ButtonsByServiceClass = Template.bind({})
+ButtonsByServiceClass.args = {
+    serviceClass: SRV_BUTTON,
 }
