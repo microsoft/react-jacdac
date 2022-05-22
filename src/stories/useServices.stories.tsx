@@ -1,20 +1,20 @@
-import { DeviceFilter, SRV_BUTTON } from "jacdac-ts"
+import { DeviceFilter, ServiceFilter, SRV_BUTTON } from "jacdac-ts"
 import React from "react"
-import { useDevices } from "../hooks/useDevices"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import bus from "./bus"
 import { JacdacProvider } from "../context/Context"
 import SimulatorToolbar from "./SimulatorToolbar"
+import { useServices } from "../hooks/useServices"
 
-const Demo = (props: DeviceFilter) => {
-    const devices = useDevices(props)
+const Demo = (props: ServiceFilter) => {
+    const services = useServices(props)
     return (
         <>
             <SimulatorToolbar />
-            <p>devices: {devices.length}</p>
+            <p>devices: {services.length}</p>
             <ul>
-                {devices.map(device => (
-                    <li key={device.id}>device {device.describe()}</li>
+                {services.map(service => (
+                    <li key={service.id}>service {service.friendlyName} {service.specification.name}</li>
                 ))}
             </ul>
         </>
@@ -30,7 +30,7 @@ const StoryContext = (props: DeviceFilter) => {
 }
 
 export default {
-    title: "Jacdac/useDevices",
+    title: "Jacdac/useServices",
     component: StoryContext,
     argTypes: {
         serviceClass: { control: "number" },
