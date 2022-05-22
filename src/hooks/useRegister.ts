@@ -10,10 +10,10 @@ import { DependencyList, useMemo } from "react"
 export function useRegister(
     service: JDService | undefined,
     identifier: number,
-    deps?: DependencyList
+    deps: DependencyList = []
 ) {
     return useMemo(
         () => service?.register(identifier),
-        [service, identifier, ...(deps || [])]
+        [service, identifier, ...deps]
     )
 }

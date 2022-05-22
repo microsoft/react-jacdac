@@ -21,7 +21,7 @@ const Demo = (props: ServiceFilter) => {
     )
 }
 
-const StoryContext = (props: DeviceFilter) => {
+const StoryContext = (props: ServiceFilter) => {
     return (
         <JacdacProvider initialBus={bus}>
             <Demo {...props} />

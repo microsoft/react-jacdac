@@ -41,7 +41,7 @@ export interface HumanRegisterOptions extends RegisterOptions {
 export function useRegisterHumanValue(
     register: JDRegister,
     options?: HumanRegisterOptions,
-    deps?: DependencyList
+    deps: DependencyList = []
 ): string {
     const { disabled, maxLength, trackError } = options || {}
 
@@ -55,7 +55,7 @@ export function useRegisterHumanValue(
                 "?",
                 trackError
             ),
-        [disabled, maxLength, ...(deps || [])]
+        [disabled, maxLength, ...deps]
     )
 }
 
@@ -68,7 +68,7 @@ export function useRegisterHumanValue(
 export function useRegisterValue<T extends PackedValues>(
     register: JDRegister,
     options?: RegisterOptions,
-    deps?: DependencyList
+    deps: DependencyList = []
 ): T {
     const { disabled, trackError } = options || {}
 
@@ -82,7 +82,7 @@ export function useRegisterValue<T extends PackedValues>(
                 [] as T,
                 trackError
             ),
-        [disabled, ...(deps || [])]
+        [disabled, ...deps]
     )
 }
 
@@ -95,12 +95,12 @@ export function useRegisterValue<T extends PackedValues>(
 export function useRegisterBoolValue(
     register: JDRegister | undefined,
     options?: RegisterOptions,
-    deps?: DependencyList
+    deps: DependencyList = []
 ): boolean {
     const { disabled } = options || {}
 
     return useEventRaised(REPORT_UPDATE, register, _ => _?.boolValue, [
         disabled,
-        ...(deps || []),
+        ...deps,
     ])
 }
