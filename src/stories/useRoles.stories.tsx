@@ -6,9 +6,9 @@ import { JacdacProvider } from "../context/Context"
 import { useRoles } from "../hooks/useRoles"
 import { useServiceProvider } from "./useServiceProvider"
 import { useServices } from "../hooks/useServices"
+import SimulatorToolbar from "./SimulatorToolbar"
 
 const Demo = () => {
-    const [button3On, setButton3On] = useState(false)
     const {
         roles: { button1, button2, button3 },
     } = useRoles({
@@ -17,17 +17,11 @@ const Demo = () => {
         button3: { serviceClass: SRV_BUTTON },
     })
     useServiceProvider({ serviceClass: SRV_BUTTON })
-    useServiceProvider({ serviceClass: SRV_BUTTON })
-    useServiceProvider({ serviceClass: button3On ? SRV_BUTTON : undefined })
 
     const buttons = useServices({ serviceClass: SRV_BUTTON })
     return (
         <>
-            <p>
-                <button onClick={() => setButton3On(b => !b)}>
-                    {button3On ? `disable button 3` : `enabled button 3`}
-                </button>
-            </p>
+            <SimulatorToolbar />
             <p>buttons:</p>
             <ul>
                 {buttons?.map(button => (
