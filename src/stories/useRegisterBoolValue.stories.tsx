@@ -2,9 +2,11 @@ import {
     ButtonReg,
     JDService,
     PotentiometerReg,
+    RelayReg,
     ServiceFilter,
     SRV_BUTTON,
     SRV_POTENTIOMETER,
+    SRV_RELAY,
 } from "jacdac-ts"
 import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
@@ -13,15 +15,15 @@ import { JacdacProvider } from "../context/Context"
 import SimulatorToolbar from "./SimulatorToolbar"
 import { useServices } from "../hooks/useServices"
 import { useRegister } from "../hooks/useRegister"
-import { useRegisterValue } from "../hooks/useRegisterValue"
+import { useRegisterBoolValue } from "../hooks/useRegisterValue"
 
 const DemoService = (props: { identifier: number; service: JDService }) => {
     const { identifier, service } = props
     const register = useRegister(service, identifier)
-    const values = useRegisterValue(register)
+    const active = useRegisterBoolValue(register)
     return (
         <span style={{ marginLeft: "0.5rem" }}>
-            {register.name}: {values}
+            {register.name}: {active ? "on" : "off"}
         </span>
     )
 }
@@ -58,7 +60,7 @@ const StoryContext = (props: { identifier: number } & ServiceFilter) => {
 }
 
 export default {
-    title: "Jacdac/useRegisterValue",
+    title: "Jacdac/useRegisterBoolValue",
     component: StoryContext,
     argTypes: {
         serviceClass: { control: "number" },
@@ -70,14 +72,8 @@ const Template: ComponentStory<typeof StoryContext> = args => (
     <StoryContext {...args} />
 )
 
-export const ButtonPressure = Template.bind({})
-ButtonPressure.args = {
-    serviceClass: SRV_BUTTON,
-    identifier: ButtonReg.Pressure,
-}
-
-export const SliderPosition = Template.bind({})
-SliderPosition.args = {
-    serviceClass: SRV_POTENTIOMETER,
-    identifier: PotentiometerReg.Position,
+export const RelayActive = Template.bind({})
+RelayActive.args = {
+    serviceClass: SRV_RELAY,
+    identifier: RelayReg.Active,
 }
