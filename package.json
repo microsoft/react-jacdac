@@ -1,7 +1,7 @@
 {
   "name": "react-jacdac",
   "type": "module",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "source": "src/index.ts",
   "main": "./dist/react-jacdac.cjs",
   "module": "./dist/react-jacdac.module.js",
