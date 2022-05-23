@@ -17,21 +17,21 @@ export interface RoleBinding {
  */
 export function useRoles<TRoles extends Record<string, RoleBinding>>(
     bindings: TRoles,
-    deps?: DependencyList
+    deps: DependencyList = []
 ) {
     const roleManager = useRoleManager()
+    const bindingsKey = JSON.stringify(bindings)
 
-    // apply bindings
     useEffect(() => {
         roleManager.updateRoles(
-            Object.keys(bindings).map(role => ({
+            Object.entries(bindings).map(([role, binding]) => ({
                 role,
-                serviceClass: bindings[role].serviceClass,
-                preferredDeviceId: bindings[role].preferredDeviceId,
-                preferredServiceIndex: bindings[role].preferredServiceIndex,
+                serviceClass: binding.serviceClass,
+                preferredDeviceId: binding.preferredDeviceId,
+                preferredServiceIndex: binding.preferredServiceIndex,
             }))
         )
-    }, [roleManager, ...(deps || [])])
+    }, [roleManager, bindingsKey, ...deps])
 
     const { roles, updates } = useChange(
         roleManager,
@@ -41,28 +41,25 @@ export function useRoles<TRoles extends Record<string, RoleBinding>>(
             const u: Record<keyof TRoles, (service: JDService) => void> =
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 {} as any
-            for (const key in bindings) {
+            Object.entries(bindings).map(([key, binding]) => {
                 const srv = _.service(key)
-                r[key] = srv
-                u[key] = (service: JDService) =>
+                const serviceClass = binding.serviceClass
+                r[key as keyof TRoles] = srv
+                u[key as keyof TRoles] = (service: JDService) => {
+                    if (service && service.serviceClass !== serviceClass)
+                        throw new Error(`invalid service class for role ${key}`)
                     _.updateRole(
                         key,
                         service?.serviceClass,
                         service?.device.deviceId,
                         service?.serviceIndex
                     )
-            }
-            return { roles: r, updates: u }
+                }
+            })
+            return { roles: r, updates: u, changeId: _.changeId }
         },
-        [...(deps || [])],
-        (a, b) => {
-            const akeys = Object.keys(a.roles)
-            const bkeys = Object.keys(b.roles)
-            return (
-                arrayEq(akeys, bkeys) &&
-                akeys.every(role => a.roles[role] === b.roles[role])
-            )
-        }
+        [bindingsKey, ...deps],
+        (a, b) => a.changeId == b.changeId
     )
 
     return { roleManager, roles, updates }
