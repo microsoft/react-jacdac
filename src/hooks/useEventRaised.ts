@@ -1,6 +1,6 @@
 import { IEventSource, arrayEq } from "jacdac-ts"
 import { useMemo, DependencyList } from "react"
-import { useSyncExternalStoreWithSelector } from "use-sync-external-store/with-selector"
+import { useSyncExternalStoreWithSelector } from "use-sync-external-store/with-selector.js"
 
 /**
  * A hook to track event and update a state snapshot
