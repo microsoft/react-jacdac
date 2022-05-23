@@ -1,4 +1,4 @@
-import { IEventSource, arrayEq } from "jacdac-ts"
+import { IEventSource, packedValuesIsEqual } from "jacdac-ts"
 import { useMemo, DependencyList } from "react"
 import { useSyncExternalStoreWithSelector } from "use-sync-external-store/with-selector.js"
 
@@ -20,17 +20,7 @@ export function useEventRaised<TEventSource extends IEventSource, TValue>(
                 const unsubscribe = node?.subscribe(eventName, onStoreChanged)
                 return () => unsubscribe?.()
             },
-            isEqual: isEqual
-                ? isEqual
-                : (a: TValue, b: TValue) => {
-                      if (Array.isArray(a)) {
-                          const e = arrayEq(
-                              a as unknown as unknown[],
-                              b as unknown as unknown[]
-                          )
-                          return e
-                      } else return Object.is(a, b)
-                  },
+            isEqual: isEqual || packedValuesIsEqual,
         }),
         [node, ...(deps || [])]
     )
