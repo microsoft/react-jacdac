@@ -1,5 +1,6 @@
-import { deviceCatalog, DeviceSpecificationOptions } from "jacdac-ts"
+import { DeviceSpecificationOptions } from "jacdac-ts"
 import { useChange } from "./useChange"
+import useDeviceCatalog from "./useDeviceCatalog"
 
 /**
  * Gets the list of known Jacdac modules from a central repository
@@ -9,10 +10,12 @@ import { useChange } from "./useChange"
 export function useDeviceSpecifications(
     options?: DeviceSpecificationOptions
 ): jdspec.DeviceSpec[] {
+    const catalog = useDeviceCatalog()
     const specifications = useChange(
-        deviceCatalog,
+        catalog,
         _ => _.specifications(options),
-        [JSON.stringify(options)]
+        [JSON.stringify(options)],
+        (a, b) => arrayEq(a, b, (l, r) => l.id === r.id)
     )
     return specifications
 }
