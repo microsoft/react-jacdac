@@ -7559,10 +7559,10 @@ iterate-value@^1.0.2:
     es-get-iterator "^1.0.2"
     iterate-iterator "^1.0.1"
 
-jacdac-ts@^1.24.30:
-  version "1.24.30"
-  resolved "https://registry.yarnpkg.com/jacdac-ts/-/jacdac-ts-1.24.30.tgz#3422a3e91a73fd688b7a127c41616ad547ec38e8"
-  integrity sha512-5pv6NLp3Rx69+Ayol1QN7h7zEy3Dq9qamMRKzIbSDGExRX/vKNr28QKgAd8OMFQyQYWx0jDzbceLtPN2hU706A==
+jacdac-ts@^1.24.34:
+  version "1.24.34"
+  resolved "https://registry.yarnpkg.com/jacdac-ts/-/jacdac-ts-1.24.34.tgz#35d6574e6d7c05e7ceafae3bf438df453ece69a6"
+  integrity sha512-petzF2TBWMe/Ij3HlKAP7sOz5h/JO4duM0swjx7KKS1CIJ59xfVlfa8aNB2nhslp257fblhMXlUlOeK/r4HSsw==
   dependencies:
     "@types/node" "^17.0.17"
     "@types/w3c-web-serial" "^1.0.2"
