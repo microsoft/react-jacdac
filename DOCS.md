@@ -2,7 +2,7 @@
 
 This package allows you to integrate Jacdac into React applications.
 
--   **[Documentation](https://microsoft.github.io/jacdac-docs/clients/react/)**
+-   **[Documentation](https://microsoft.github.io/jacdac-docs/clients/javascript/react/)**
 
 To browser the API documentation, use the list on this page to explore classes.
 

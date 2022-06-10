@@ -10,7 +10,7 @@ with applications to rapid prototyping, making, and physical computing.
 **Partner Preview: Jacdac is currently in preview. If you would like to join as a pre-release test partner, please email jacdac-tap@microsoft.com.**
 
 -   **[Jacdac Protocol Documentation](https://aka.ms/jacdac/)**
--   **[Documentation](https://microsoft.github.io/jacdac-docs/clients/react/)**
+-   **[Documentation](https://microsoft.github.io/jacdac-docs/clients/javascript/react/)**
 -   **[API Reference](https://microsoft.github.io/react-jacdac/)**
 -   Discussions at https://github.com/microsoft/jacdac/discussions
 -   Issues are tracked on https://github.com/microsoft/jacdac/issues
