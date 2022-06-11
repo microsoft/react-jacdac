@@ -1,4 +1,4 @@
-import { DeviceSpecificationOptions } from "jacdac-ts"
+import { arrayEq, DeviceSpecificationOptions } from "jacdac-ts"
 import { useChange } from "./useChange"
 import useDeviceCatalog from "./useDeviceCatalog"
 
