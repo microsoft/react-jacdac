@@ -6,9 +6,6 @@ React with hooks support required.
 **Jacdac** is a plug-and-play hardware/software stack
 for **microcontrollers** and their peripherals (sensors/actuators),
 with applications to rapid prototyping, making, and physical computing.
-
-**Partner Preview: Jacdac is currently in preview. If you would like to join as a pre-release test partner, please email jacdac-tap@microsoft.com.**
-
 -   **[Jacdac Protocol Documentation](https://aka.ms/jacdac/)**
 -   **[Documentation](https://microsoft.github.io/jacdac-docs/clients/javascript/react/)**
 -   **[API Reference](https://microsoft.github.io/react-jacdac/)**
