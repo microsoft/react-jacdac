@@ -2996,11 +2996,6 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.36.tgz#9ab9f8276987132ed2b225cace2218ba794fc751"
   integrity sha512-FR5QJe+TaoZ2GsMHkjuwoNabr+UrJNRr2HNOo+r/7vhcuntM6Ee/pRPOnRhhL2XE9OOvX9VLEq+BcXl3VjNoWA==
 
-"@types/node@^17.0.17":
-  version "17.0.18"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.18.tgz#3b4fed5cfb58010e3a2be4b6e74615e4847f1074"
-  integrity sha512-eKj4f/BsN/qcculZiRSujogjvp5O/k4lOW5m35NopjZM/QwLOR075a8pJW5hD+Rtdm2DaCVPENS6KtSQnUD6BA==
-
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.1.tgz#d3357479a0fdfdd5907fe67e17e0a85c906e1301"
@@ -3090,21 +3085,6 @@
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz#b6725d5f4af24ace33b36fafd295136e75509f43"
   integrity sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==
-
-"@types/w3c-web-serial@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@types/w3c-web-serial/-/w3c-web-serial-1.0.2.tgz#8bf21f90b40dda6d2e2e6b188417b6bd66525d03"
-  integrity sha512-Ftx4BtLxgAnel7V7GbHylCYjSq827A+jeEE3SnTS7huCGUN0pSwUn+CchTCT9TkZj9w+NVMUq4Bk2R0GvUNmAQ==
-
-"@types/w3c-web-usb@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@types/w3c-web-usb/-/w3c-web-usb-1.0.5.tgz#90284d17f35de981670c85d29053ae8b88fa5543"
-  integrity sha512-dYolx2XWesl1TMu+1BjtjU6eC6c2zZ2VDKhjU4f/mtR3+UBfMW6h1tPCQt7leY5Y8JBg0Fe/mMnoDMkPPNX9sw==
-
-"@types/web-bluetooth@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.12.tgz#e3dfd5a86a1f753305b9888c320937b5734118ae"
-  integrity sha512-Q4sUrowpylCOWjUWFtNwkNBHQUnCL8y44Iq2ZLtVMAuAGIwPSXa3kqIvu2LwXoc2d1jyaaw4Bg354degHrsADw==
 
 "@types/webpack-env@^1.16.0":
   version "1.17.0"
@@ -7559,15 +7539,10 @@ iterate-value@^1.0.2:
     es-get-iterator "^1.0.2"
     iterate-iterator "^1.0.1"
 
-jacdac-ts@^1.24.34:
-  version "1.24.34"
-  resolved "https://registry.yarnpkg.com/jacdac-ts/-/jacdac-ts-1.24.34.tgz#35d6574e6d7c05e7ceafae3bf438df453ece69a6"
-  integrity sha512-petzF2TBWMe/Ij3HlKAP7sOz5h/JO4duM0swjx7KKS1CIJ59xfVlfa8aNB2nhslp257fblhMXlUlOeK/r4HSsw==
-  dependencies:
-    "@types/node" "^17.0.17"
-    "@types/w3c-web-serial" "^1.0.2"
-    "@types/w3c-web-usb" "^1.0.5"
-    "@types/web-bluetooth" "^0.0.12"
+jacdac-ts@1:
+  version "1.30.3"
+  resolved "https://registry.yarnpkg.com/jacdac-ts/-/jacdac-ts-1.30.3.tgz#2d147fc08ee1d86c8ec3f23bda69d3d5dd4256e3"
+  integrity sha512-5DxAmUi4hQLGh6fIp1TmV73sv48l6XkqombJ7p87LNtAfvQMCvxXLPrMdRz+LYWlViT4aIAPwif2ktZ4Rw04eQ==
 
 jake@^10.6.1:
   version "10.8.2"

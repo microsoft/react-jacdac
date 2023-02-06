@@ -56,7 +56,7 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
-    "jacdac-ts": "^1.24.34",
+    "jacdac-ts": "1",
     "use-sync-external-store": "^1.1.0"
   },
   "peerDependencies": {
