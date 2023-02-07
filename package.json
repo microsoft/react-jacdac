@@ -27,8 +27,7 @@
     "docs": "node node_modules/typedoc/bin/typedoc",
     "docs:watch": "node node_modules/typedoc/bin/typedoc --watch",
     "docs:server": "cd docs && npx live-server --port=8082",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",

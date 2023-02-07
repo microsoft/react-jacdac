@@ -51,8 +51,8 @@ export default {
     component: StoryContext,
 } as ComponentMeta<typeof StoryContext>
 
-const Template: ComponentStory<typeof StoryContext> = args => (
-    <StoryContext {...args} />
+const Template: ComponentStory<typeof StoryContext> = (args: object) => (
+    <StoryContext {...(args || {})} />
 )
 
 export const ThreeButtons = Template.bind({})
