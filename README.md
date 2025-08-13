@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repo has moved to https://github.com/jacdac/react-jacdac. 
+
 # React-Jacdac
 
 A library of hooks and context for [Jacdac](https://aka.ms/jacdac).
